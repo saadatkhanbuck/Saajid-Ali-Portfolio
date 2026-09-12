@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { nav } from "@/lib/data";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -56,15 +57,18 @@ export default function Nav() {
           ))}
         </div>
 
-        {/* BUTTON */}
-        <a
-          href="#contact"
-          className={`shrink-0 text-[0.9rem] rounded-full font-medium text-void bg-ember-gradient hover:brightness-110 transition-all duration-500 ${
-            scrolled ? "px-4 py-1.5" : "px-4 py-2"
-          }`}
-        >
-          Let&rsquo;s talk
-        </a>
+       <a
+             href="https://wa.me/923201757153"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Chat with Sajid on WhatsApp"
+             className={`shrink-0 inline-flex items-center gap-2 rounded-full font-medium text-bone border border-ember/40 bg-char/80 hover:bg-ember/15 hover:border-ember transition-all duration-500 ${
+               scrolled ? "px-4 py-1.5 text-[0.9rem]" : "px-4 py-2 text-[0.9rem]"
+             }`}
+           >
+            <FaWhatsapp className="text-lg text-[#25D366]" />
+            WhatsApp
+          </a>
 
       </nav>
     </div>
