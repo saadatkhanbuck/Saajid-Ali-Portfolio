@@ -1,0 +1,198 @@
+/* =========================================
+   MAIN AREA
+========================================= */
+
+.sm-integrations-network {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  height: 760px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* =========================================
+   NETWORK LINES — recolored to ember
+========================================= */
+
+.sm-network-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sm-network-lines path {
+  fill: none;
+  stroke: rgba(249, 115, 22, 0.35);
+  stroke-width: 1.5;
+}
+
+.sm-dot {
+  fill: #fb923c;
+  filter: drop-shadow(0 0 7px #f97316);
+}
+
+/* =========================================
+   ICON SIDE
+========================================= */
+
+.sm-side {
+  position: absolute;
+  top: 0;
+  width: 230px;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.sm-left {
+  left: 20px;
+}
+
+.sm-right {
+  right: 20px;
+}
+
+/* =========================================
+   ICON BOX — warm chip on the dark background
+========================================= */
+
+.sm-icon {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: #f6f2ea;
+  border: 1px solid rgba(249, 115, 22, 0.22);
+  box-shadow: 0 12px 32px rgba(194, 65, 12, 0.28), 0 0 0 1px rgba(8, 7, 10, 0.4);
+  z-index: 20;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* =========================================
+   IMAGE ICONS
+========================================= */
+
+.sm-icon img {
+  width: 27px;
+  height: 27px;
+  display: block;
+  object-fit: contain;
+}
+
+/* =========================================
+   SYMBOL ICONS
+========================================= */
+
+.sm-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-plex), Arial, sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* =========================================
+   LEFT ICON POSITIONS
+========================================= */
+
+.sm-left .sm-gmail { left: 0; top: 45px; }
+.sm-left .sm-instagram { left: 0; top: 140px; }
+.sm-left .sm-telegram { left: 35px; top: 235px; }
+.sm-left .sm-video { left: 75px; top: 330px; }
+.sm-left .sm-love { left: 150px; top: 385px; }
+.sm-left .sm-calendar { left: 200px; top: 445px; }
+
+/* =========================================
+   RIGHT ICON POSITIONS
+========================================= */
+
+.sm-right .sm-whatsapp { right: 0; top: 45px; }
+.sm-right .sm-shopify { right: 0; top: 140px; }
+.sm-right .sm-shop { right: 35px; top: 235px; }
+.sm-right .sm-tiktok { right: 75px; top: 330px; }
+.sm-right .sm-wordpress { right: 120px; top: 385px; }
+.sm-right .sm-linkedin { right: 180px; top: 445px; }
+
+/* =========================================
+   SYMBOL COLORS — ember/amber palette
+========================================= */
+
+.sm-video .sm-symbol { color: #fb923c; }
+.sm-love .sm-symbol { color: #facc15; }
+.sm-calendar .sm-symbol { color: #f97316; }
+.sm-shop .sm-symbol { color: #f97316; }
+
+/* =========================================
+   CENTER BADGE
+========================================= */
+
+.sm-center-badge {
+  position: absolute;
+  left: 50%;
+  top: 76%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+}
+
+.sm-center-badge img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 45px rgba(249, 115, 22, 0.35)) drop-shadow(0 10px 35px rgba(250, 204, 21, 0.22));
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .sm-integrations-network { height: 650px; }
+  .sm-side { width: 170px; }
+  .sm-icon { width: 50px; height: 50px; }
+  .sm-icon img { width: 22px; height: 22px; }
+  .sm-symbol { font-size: 22px; }
+  .sm-center-badge { width: 240px; top: 73%; }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+  .sm-integrations-network { height: 560px; }
+  .sm-side { width: 105px; }
+  .sm-left { left: 5px; }
+  .sm-right { right: 5px; }
+  .sm-icon { width: 42px; height: 42px; border-radius: 12px; }
+  .sm-icon img { width: 18px; height: 18px; }
+  .sm-symbol { font-size: 18px; }
+  .sm-center-badge { width: 190px; top: 63%; }
+  .sm-network-lines path { stroke-width: 1.2; }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .sm-integrations-network { height: 500px; }
+  .sm-icon { width: 36px; height: 36px; border-radius: 10px; }
+  .sm-icon img { width: 15px; height: 15px; }
+  .sm-symbol { font-size: 15px; }
+  .sm-center-badge { width: 155px; top: 64%; }
+}
