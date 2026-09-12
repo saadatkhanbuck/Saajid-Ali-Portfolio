@@ -97,7 +97,7 @@ export default function CaseStudies() {
                       </div>
                     </div>
 
-                    <div className="mt-6 pt-5 border-t border-dashed border-line">
+                    {/* <div className="mt-6 pt-5 border-t border-dashed border-line">
                       <figure className="flex gap-4 items-start bg-surface-2 p-4">
                         <div
                           className="w-[110px] h-[80px] shrink-0 bg-void border border-line flex items-center justify-center text-[0.65rem] text-bone-soft/60 text-center px-2"
@@ -111,7 +111,7 @@ export default function CaseStudies() {
                           {cs.evidenceCaption}
                         </figcaption>
                       </figure>
-                    </div>
+                    </div> */}
 
                     {cs.takeaway && (
                       <p className="mt-5 text-[0.94rem] italic border-l-2 border-ember pl-4 py-2.5 bg-ember/[0.06]">
