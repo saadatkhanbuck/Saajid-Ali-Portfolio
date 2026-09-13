@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { caseStudies } from "@/lib/data";
 import SectionHead from "./SectionHead";
+import MiniChart from "./MiniChart";
 
 export default function CaseStudies() {
   const [openIndex, setOpenIndex] = useState<number | null>(
@@ -91,6 +92,7 @@ export default function CaseStudies() {
                             ))}
                           </div>
                         )}
+                        {cs.chartMetrics && <MiniChart metrics={cs.chartMetrics} />}
                         {cs.resultParagraph && (
                           <p className="text-bone-soft text-[0.94rem]">{cs.resultParagraph}</p>
                         )}

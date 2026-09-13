@@ -122,6 +122,15 @@ export const results = {
   footNote: "Full breakdowns, timelines, and evidence for each project are in the case studies below.",
 };
 
+export type ChartMetric = {
+  label: string;
+  start: number;
+  now: number;
+  /** Overrides the "Start" caption (e.g. "New site") and suppresses the
+   *  growth-% badge, since there's no real baseline to compute a % from. */
+  startLabel?: string;
+};
+
 export type CaseStudy = {
   index: string;
   title: string;
@@ -135,6 +144,7 @@ export type CaseStudy = {
   secondParagraph?: string;
   stats: { num: string; lab: string }[];
   resultParagraph?: string;
+  chartMetrics?: ChartMetric[];
   evidenceAlt: string;
   evidenceCaptionTitle: string;
   evidenceCaption: string;
@@ -165,6 +175,10 @@ export const caseStudies: CaseStudy[] = [
       { num: "182 → 4,277", lab: "Organic traffic" },
       { num: "1,400 → 5,499", lab: "Ranking keywords (by Jan 2025)" },
     ],
+    chartMetrics: [
+      { label: "Traffic", start: 182, now: 4277 },
+      { label: "Keywords", start: 1400, now: 5499 },
+    ],
     resultParagraph:
       "This was a team result. My contribution was content strategy, keyword research, SEO writing, editing, proofreading, team management, and ongoing content quality — not the entire outcome on my own.",
     evidenceAlt: "Growth trend note for Custom Designed Boxes, July 2023 to April 2025",
@@ -191,6 +205,9 @@ export const caseStudies: CaseStudy[] = [
     stats: [
       { num: "~0 → 1,800+", lab: "Organic traffic by Apr 2025" },
       { num: "6,726", lab: "Ranking keywords" },
+    ],
+    chartMetrics: [
+      { label: "Traffic", start: 5, now: 1800, startLabel: "New site" },
     ],
     resultParagraph:
       "Traffic continued to grow past this point. As with Custom Designed Boxes, this reflects the combined work of the content, SEO, and development teams, with my role centered on content leadership and structure.",
@@ -220,6 +237,10 @@ export const caseStudies: CaseStudy[] = [
       { num: "478 → 8,005", lab: "Organic traffic" },
       { num: "1,336 → 7,643", lab: "Ranking keywords" },
     ],
+    chartMetrics: [
+      { label: "Traffic", start: 478, now: 8005 },
+      { label: "Keywords", start: 1336, now: 7643 },
+    ],
     resultParagraph: "March 2025 – February 2026",
     evidenceAlt: "Growth trend note for We Custom Boxes",
     evidenceCaptionTitle: "Evidence note",
@@ -246,6 +267,10 @@ export const caseStudies: CaseStudy[] = [
       { num: "26 → 242", lab: "Organic traffic" },
       { num: "243 → 1,949", lab: "Ranking keywords" },
     ],
+    chartMetrics: [
+      { label: "Traffic", start: 26, now: 242 },
+      { label: "Keywords", start: 243, now: 1949 },
+    ],
     resultParagraph: "March 2025 – February 2026",
     evidenceAlt: "Growth trend note for The Speedy Pack",
     evidenceCaptionTitle: "Evidence note",
@@ -268,6 +293,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     secondHeading: "Results (team outcome)",
     stats: [{ num: "200 → 450+", lab: "Monthly quote requests" }],
+    chartMetrics: [{ label: "Quotes / mo", start: 200, now: 450 }],
     resultParagraph:
       "By December 2025, monthly quote volume had more than doubled. This growth reflects the combined efforts of the wider team; my contribution was content strategy and execution. The team's performance was recognized with company-wide bonuses during this period.",
     evidenceAlt: "Growth trend note related to Silver Edge Packaging",
@@ -293,6 +319,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     secondHeading: "Results so far",
     stats: [{ num: "763 → 1,700+", lab: "Organic traffic" }],
+    chartMetrics: [{ label: "Traffic", start: 763, now: 1700 }],
     resultParagraph:
       "Still active — traffic has more than doubled from the starting point, with strategy, writing, and workflow management ongoing.",
     evidenceAlt: "Growth trend note for Custom Bakery Boxes",
