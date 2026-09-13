@@ -1,4 +1,5 @@
 import { hero } from "@/lib/data";
+import {  FaLinkedinIn } from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -24,9 +25,9 @@ export default function Hero() {
               href="https://www.linkedin.com/in/sajid-ali-4b4235208"
               target="_blank"
               rel="noopener"
-              className="btn btn-ghost"
+              className="w-14 h-14 rounded-full flex items-center justify-center border border-orange-500/40 bg-orange-500/10 text-orange-400 hover:bg-orange-500 hover:text-white hover:scale-110 transition-all duration-300"
             >
-              LinkedIn profile ↗
+              <FaLinkedinIn size={23} />
             </a>
           </div>
         </div>
