@@ -10,6 +10,7 @@ export const site = {
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#timeline" },
+  { label: "Publications", href: "#published" },
   { label: "Results", href: "#results" },
   { label: "Case Studies", href: "#cases" },
   { label: "Tools & Skills", href: "#tools" },
@@ -94,6 +95,83 @@ export const timeline = {
       desc: "Alongside on-site work, I run two ongoing monthly content and SEO programs — We Custom Boxes and The Speedy Pack — where I personally own keyword research, content strategy, writing, optimization, and sheet management end to end.",
       note: "These are retained, recurring engagements with daily work — not one-off assignments — which is part of why the keyword and traffic data below spans nearly a full year.",
       current: true,
+    },
+  ],
+};
+
+export type Publication = {
+  title: string;
+  site: string;
+  url: string;
+  category: "Blog post" | "Website copy" | "Press release";
+};
+
+export const publishedWork = {
+  heading: "Published work",
+  sub: "Live, published pieces across blog content, website copy, and press releases — proof of the writing behind the results below.",
+  groups: [
+    {
+      heading: "Blog & product content",
+      items: [
+        {
+          title: "Understanding graham cracker packaging",
+          site: "customproductpackaging.com",
+          url: "https://www.customproductpackaging.com/blog/understanding-graham-cracker-packaging-how-many-crackers-in-a-box/",
+          category: "Blog post",
+        },
+        {
+          title: "Baseball card dimensions",
+          site: "wecustomboxes.com",
+          url: "https://www.wecustomboxes.com/blog/baseball-card-dimentions/",
+          category: "Blog post",
+        },
+        {
+          title: "Hemp boxes product page",
+          site: "customdesignsboxes.com",
+          url: "https://customdesignsboxes.com/hemp-boxes",
+          category: "Website copy",
+        },
+        {
+          title: "Custom bakery boxes — site copy",
+          site: "thecustombakeryboxes.com",
+          url: "https://www.thecustombakeryboxes.com/",
+          category: "Website copy",
+        },
+      ] as Publication[],
+    },
+    {
+      heading: "Other client sites",
+      items: [
+        {
+          title: "Fragrance Souk UK — site copy",
+          site: "fragrancesouk.co.uk",
+          url: "https://www.fragrancesouk.co.uk/",
+          category: "Website copy",
+        },
+        {
+          title: "5-star Umrah packages",
+          site: "alharamtravel.co.uk",
+          url: "https://www.alharamtravel.co.uk/offers/5-star-umrah-packages/",
+          category: "Website copy",
+        },
+      ] as Publication[],
+    },
+    {
+      heading: "Press releases",
+      items: [
+        {
+          title: "Sustainable packaging for a greener tomorrow",
+          site: "abnewswire.com",
+          url: "https://www.abnewswire.com/pressreleases/the-box-zilla-introduces-sustainable-packaging-for-a-greener-tomorrow_824402.html",
+          category: "Press release",
+        },
+        {
+          title: "Full-color printing for political campaign materials",
+          site: "einpresswire.com",
+          url: "https://www.einpresswire.com/article/715531105/custom-designs-boxes-brings-full-color-printing-services-for-political-campaign-materials",
+          category: "Press release",
+        },
+      ] as Publication[],
     },
   ],
 };

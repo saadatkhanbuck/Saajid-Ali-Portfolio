@@ -8,6 +8,7 @@ import CaseStudies from "@/components/CaseStudies";
 import Tools from "@/components/Tools";
 import Contact from "@/components/Contact";
 import IntegrationsNetwork from "@/components/IntegrationsNetwork";
+import PublishedWork from "@/components/PublishedWork";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <About />
         <IntegrationsNetwork/>
         <Timeline />
+        <PublishedWork />
         <Results />
         <CaseStudies />
         <Tools />
