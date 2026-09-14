@@ -45,7 +45,7 @@ export default function Nav() {
         </div>
 
         {/* NAV LINKS */}
-        <div className="hidden md:flex gap-7 text-[0.92rem] text-bone-soft">
+        <div className="hidden md:flex gap-7 mt-1 text-[0.92rem] text-bone-soft">
           {nav.map((item) => (
             <a
               key={item.href}
