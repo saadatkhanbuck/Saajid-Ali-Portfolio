@@ -135,13 +135,13 @@
 .sm-shop .sm-symbol { color: #f97316; }
 
 /* =========================================
-   CENTER BADGE
+   CENTER BADGE (desktop)
 ========================================= */
 
 .sm-center-badge {
   position: absolute;
   left: 50%;
-  top: 76%;
+  top: 71%;
   transform: translate(-50%, -50%);
   width: 280px;
   z-index: 30;
@@ -157,42 +157,138 @@
 }
 
 /* =========================================
-   TABLET
+   VIEW SWITCH
+   Desktop fan layout shows above 1024px.
+   Below that, the circular layout takes over
+   completely instead of trying to squeeze the
+   fixed-pixel fan layout into a smaller space
+   (that mismatch between fixed-px icon offsets
+   and the stretching SVG lines is what was
+   causing icons to fall out of line and drop
+   below the badge).
 ========================================= */
 
-@media (max-width: 1100px) {
-  .sm-integrations-network { height: 650px; }
-  .sm-side { width: 170px; }
-  .sm-icon { width: 50px; height: 50px; }
-  .sm-icon img { width: 22px; height: 22px; }
-  .sm-symbol { font-size: 22px; }
-  .sm-center-badge { width: 240px; top: 73%; }
+.sm-desktop-view {
+  display: block;
+}
+
+.sm-mobile-view {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .sm-integrations-network {
+    height: auto;
+    padding: 32px 0 48px;
+  }
+
+  .sm-desktop-view {
+    display: none;
+  }
+
+  .sm-mobile-view {
+    display: block;
+  }
 }
 
 /* =========================================
-   MOBILE
+   MOBILE / TABLET CIRCULAR LAYOUT (<=1024px)
+   Every icon sits at a trig-calculated % position
+   and every spoke uses that same angle, so a
+   spoke can never end up short/long/behind an
+   icon at any screen size — including the very
+   smallest phones.
 ========================================= */
 
-@media (max-width: 767px) {
-  .sm-integrations-network { height: 560px; }
-  .sm-side { width: 105px; }
-  .sm-left { left: 5px; }
-  .sm-right { right: 5px; }
-  .sm-icon { width: 42px; height: 42px; border-radius: 12px; }
-  .sm-icon img { width: 18px; height: 18px; }
-  .sm-symbol { font-size: 18px; }
-  .sm-center-badge { width: 190px; top: 63%; }
-  .sm-network-lines path { stroke-width: 1.2; }
+.sm-orbit-wrap {
+  padding: 20px 16px 8px;
 }
 
-/* =========================================
-   SMALL MOBILE
-========================================= */
+.sm-orbit {
+  position: relative;
+  width: min(92vw, 560px);
+  min-width: 240px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+}
 
-@media (max-width: 480px) {
-  .sm-integrations-network { height: 500px; }
-  .sm-icon { width: 36px; height: 36px; border-radius: 10px; }
-  .sm-icon img { width: 15px; height: 15px; }
-  .sm-symbol { font-size: 15px; }
-  .sm-center-badge { width: 155px; top: 64%; }
+.sm-orbit-spoke {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 1.4px;
+  background: linear-gradient(90deg, rgba(249, 115, 22, 0.55), rgba(249, 115, 22, 0.04));
+  transform-origin: left center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sm-orbit-dot {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  border-radius: 50%;
+  background: #fb923c;
+  box-shadow: 0 0 7px #f97316;
+  animation: sm-orbit-travel 4.2s linear infinite;
+}
+
+@keyframes sm-orbit-travel {
+  0% { left: 0%; opacity: 0; }
+  12% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.sm-orbit-icon {
+  position: absolute;
+  width: 14%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 28%;
+  background: #f6f2ea;
+  border: 1px solid rgba(249, 115, 22, 0.22);
+  box-shadow: 0 10px 24px rgba(194, 65, 12, 0.28), 0 0 0 1px rgba(8, 7, 10, 0.4);
+  z-index: 2;
+  overflow: hidden;
+}
+
+.sm-orbit-icon img {
+  width: 46%;
+  height: 46%;
+  object-fit: contain;
+  display: block;
+}
+
+.sm-orbit-icon .sm-symbol {
+  font-size: clamp(12px, 3vw, 20px);
+}
+
+.sm-orbit-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 42%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+}
+
+/* No circular crop here — the badge image is a wide rectangle, so
+   forcing it into a circle with object-fit: cover was cutting off
+   the top/bottom and hiding part of it. Showing it at full, uncropped
+   size (scaled down to fit clear of the icon ring) is what keeps it
+   fully visible, same as the desktop view. */
+.sm-orbit-center img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 26px rgba(249, 115, 22, 0.3));
 }

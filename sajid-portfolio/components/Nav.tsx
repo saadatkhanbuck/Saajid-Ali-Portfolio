@@ -29,7 +29,7 @@ export default function Nav() {
       >
 
         {/* LOGO */}
-        <div className="shrink-0 flex items-center">
+        <div className="shrink-0 mb-2 flex items-center">
           <Image
             src="/assets/Sajid Ali2.png"
             alt="Sajid Ali"
